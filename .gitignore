@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/thinking-react/node_modules
+/thinking-react/.pnp
+/thinking-react.pnp.js
+
+# testing
+/thinking-react/coverage
+
+# production
+/thinking-react/build
+
+# misc
+/thinking-react/.DS_Store
+/thinking-react/.env.local
+/thinking-react/.env.development.local
+/thinking-react/.env.test.local
+/thinking-react/.env.production.local
+
+/thinking-react/npm-debug.log*
+/thinking-react/yarn-debug.log*
+/thinking-react/yarn-error.log*
