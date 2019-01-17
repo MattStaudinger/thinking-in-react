@@ -31,6 +31,10 @@ th {
   min-width: 120px;
 }
 
+td{
+  min-width: 120px;
+}
+
 .td-category {
   font-weight: 900;
   padding: 10px 0;

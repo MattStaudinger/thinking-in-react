@@ -3,13 +3,21 @@ import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
 export default class ProductTabel extends Component {
+
   getCategories = () => {
     let categories = [];
-    this.props.products.forEach((item, i) => {
+    this.getFilteredProducts().forEach((item, i) => {
       if (!categories.includes(item.category)) categories.push(item.category);
     });
     return categories;
   };
+
+  getFilteredProducts = () => {
+    let products = this.props.products.filter((item,i) => (
+       (item.name.toLowerCase().includes(this.props.filterText.toLowerCase()) && ((this.props.inStockOnly && item.stocked) ||(!this.props.inStockOnly)))      
+    ))
+    return products 
+  }
 
   render() {
     return (
@@ -25,7 +33,7 @@ export default class ProductTabel extends Component {
             {this.getCategories().map((item, i) => (
               <React.Fragment key={i}>
                 <ProductCategoryRow category={item} />
-                <ProductRow products={this.props.products} category={item} />
+                <ProductRow products={this.getFilteredProducts()} category={item} />
               </React.Fragment>
             ))}
           </tbody>
@@ -34,7 +42,6 @@ export default class ProductTabel extends Component {
     );
   }
 
-  componentDidMount() {
-    this.getCategories();
-  }
+
+
 }

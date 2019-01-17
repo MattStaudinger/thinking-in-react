@@ -9,10 +9,7 @@ export default class ProductRow extends Component {
   };
 
   render() {
-    const { products } = this.props;
     return (
-      <div>
-        {products &&
           this.getProducts().map((item,i) => (
             <tr key={i}>
               <td className={item.stocked ? null : "item-not-stocked"}>
@@ -20,8 +17,7 @@ export default class ProductRow extends Component {
               </td>
               <td>{item.price}</td>
             </tr>
-          ))}
-      </div>
+          ))
     );
   }
 }
